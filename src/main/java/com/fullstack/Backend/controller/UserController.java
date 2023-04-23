@@ -3,16 +3,15 @@ package com.fullstack.Backend.controller;
 import com.fullstack.Backend.exception.UserNotFoundException;
 import com.fullstack.Backend.model.User;
 import com.fullstack.Backend.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-
+@AllArgsConstructor
 public class UserController {
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @PostMapping("/user")
     User newUser(@RequestBody User newUser) {
@@ -50,4 +49,3 @@ public class UserController {
         return "Employee with id " + id + " has been deleted successfully.";
     }
 }
-
